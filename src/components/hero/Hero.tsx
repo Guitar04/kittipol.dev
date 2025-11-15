@@ -55,7 +55,7 @@ export default function Hero() {
                 <ArrowRightOutlined className="text-sm" />
               </a>
               <a
-                href="/cv.pdf"
+                href="/cv/Resume.pdf"
                 download
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground rounded-lg hover:border-blue-500 hover:text-blue-500 transition-all font-medium text-white"
               >
