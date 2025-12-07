@@ -10,7 +10,7 @@ import {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-transparent">
       {/* Background Pattern */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -132,7 +132,7 @@ export default function Hero() {
                   <div className="flex items-start gap-3">
                     <span className="text-foreground/40 select-none">3</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">skills:</span>{" "}
+                      <span className="text-foreground/70">Email:</span>{" "}
                       <span className="text-foreground/80">{"["}</span>
                       <span className="text-green-500">'Next.js'</span>,{" "}
                       <span className="text-green-500">'React'</span>,{" "}
@@ -143,9 +143,9 @@ export default function Hero() {
                   <div className="flex items-start gap-3">
                     <span className="text-foreground/40 select-none">4</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">passion:</span>{" "}
+                      <span className="text-foreground/70">Phone:</span>{" "}
                       <span className="text-green-500">
-                        'Building great products'
+                        '0982832896'
                       </span>
                     </code>
                   </div>
