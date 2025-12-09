@@ -1,6 +1,6 @@
 
 import Hero from "@/components/Hero/Hero";
-import TechStack from "@/components/Tecstack/TechStack";
+import TechStack from "@/components/TechStack/TechStack";
 import Footer from "@/components/Footer/Footer";
 import {CarouselDemo} from "@/components/Carousel/Carousel";
 import ParticlesBackground from "@/components/Particles/ParticlesBackground";
