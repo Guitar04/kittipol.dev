@@ -1,8 +1,10 @@
 
-import Hero from "@/components/hero/Hero";
-import TechStack from "@/components/tecstack/TechStack";
+import Hero from "@/components/Hero/Hero";
+import TechStack from "@/components/Tecstack/TechStack";
 import Footer from "@/components/Footer/Footer";
+import {CarouselDemo} from "@/components/Carousel/Carousel";
 import ParticlesBackground from "@/components/Particles/ParticlesBackground";
+
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <TechStack />
+        <CarouselDemo />
         <Footer />
       </div>
     </div>
