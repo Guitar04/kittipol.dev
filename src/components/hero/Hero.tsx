@@ -125,27 +125,26 @@ export default function Hero() {
                   <div className="flex items-start gap-3">
                     <span className="text-foreground/40 select-none">2</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">name:</span>{" "}
-                      <span className="text-green-500">'Kittipol'</span>,
+                      <span className="text-foreground/70">Facebook:</span>{" "}
+                      <span className="text-green-500">'Kittipol Ltk'</span>,
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-foreground/40 select-none">3</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">Email:</span>{" "}
+                      <span className="text-foreground/70">Phone:</span>{" "}
                       <span className="text-foreground/80">{"["}</span>
-                      <span className="text-green-500">'Next.js'</span>,{" "}
-                      <span className="text-green-500">'React'</span>,{" "}
-                      <span className="text-green-500">'PHP'</span>
+                      <span className="text-green-500">'0982832896'</span>,{" "}
+                      <span className="text-green-500">'0624035049'</span>
                       <span className="text-foreground/80">{"]"}</span>,
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-foreground/40 select-none">4</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">Phone:</span>{" "}
+                      <span className="text-foreground/70">Email:</span>{" "}
                       <span className="text-green-500">
-                        '0982832896'
+                        'kittipol.lkt@gmail.com'
                       </span>
                     </code>
                   </div>

@@ -27,7 +27,10 @@ import {
   SiZap,
   SiApachejmeter,
   SiTailwindcss,
-  SiCodeigniter
+  SiCodeigniter,
+  SiVuedotjs,
+  SiNuxtdotjs,
+  SiGo,
 } from "react-icons/si";
 import { SiMssql } from "@/components/icons/SiMssql";
 
@@ -50,6 +53,8 @@ export const technologiesByCategory: Record<TechCategory, Technology[]> = {
   Frontend: [
     { name: "React", category: "Frontend", icon: SiReact },
     { name: "Next.js", category: "Frontend", icon: SiNextdotjs },
+    { name: "Vue.js", category: "Frontend", icon: SiVuedotjs },
+    { name: "Nuxt.js", category: "Frontend", icon: SiNuxtdotjs },
     { name: "HTML", category: "Frontend", icon: SiHtml5 },
     { name: "CSS", category: "Frontend", icon: SiCss3 },
     { name: "Tailwind CSS", category: "Frontend", icon: SiTailwindcss },
@@ -66,6 +71,7 @@ export const technologiesByCategory: Record<TechCategory, Technology[]> = {
   Languages: [
     { name: "JavaScript", category: "Languages", icon: SiJavascript },
     { name: "TypeScript", category: "Languages", icon: SiTypescript },
+    { name: "Golang", category: "Languages", icon: SiGo },
   ],
 
   Database: [
