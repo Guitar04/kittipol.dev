@@ -10,7 +10,7 @@ import {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-transparent">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-30 bg-transparent">
       {/* Background Pattern */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
@@ -26,7 +26,7 @@ export default function Hero() {
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground leading-tight text-white">
                 KITTIPOL
                 <br />
-                <span className="bg-orange-400 bg-clip-text text-transparent">
+                <span className="bg-blue-500 bg-clip-text text-transparent">
                   LEKETHOK
                 </span>
               </h1>
@@ -48,10 +48,10 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="#tech-stack"
+                href="#contact"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all hover:gap-3 font-medium shadow-lg shadow-blue-500/25"
               >
-                View My Skill
+                Contact Me
                 <ArrowRightOutlined className="text-sm" />
               </a>
               <a
@@ -85,7 +85,7 @@ export default function Hero() {
                 <LinkedinOutlined className="text-xl" />
               </a>
               <a
-                href="mailto:contact@kittipol.dev"
+                href="mailto:kittipol.lkt@gmail.com"
                 className="w-12 h-12 flex items-center justify-center rounded-full border border-border hover:bg-blue-50/40  hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-all hover:scale-110"
                 aria-label="Email"
               >
@@ -94,68 +94,141 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Side - Code Block Illustration */}
+          {/* Right Side - Code Block */}
           <div className="hidden lg:block">
             <div className="relative">
-              {/* Floating Card */}
-              <div className="bg-background border border-border rounded-xl p-6 shadow-2xl">
+              <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 shadow-2xl shadow-black/20">
                 {/* Terminal Header */}
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-border">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-700/50">
+                  <div className="flex gap-2">
+                    <div className="w-3.5 h-3.5 rounded-full bg-red-500 shadow-lg shadow-red-500/30" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-yellow-500 shadow-lg shadow-yellow-500/30" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-green-500 shadow-lg shadow-green-500/30" />
                   </div>
-                  <span className="text-xs text-foreground/50 ml-2 font-mono">
-                    kittipol.dev
+                  <span className="text-sm text-slate-400 ml-2 font-mono tracking-wide">
+                    developer.ts
                   </span>
                 </div>
 
                 {/* Code Content */}
-                <div className="font-mono text-sm space-y-2">
+                <div className="font-mono text-sm space-y-1">
                   <div className="flex items-start gap-3">
-                    <span className="text-foreground/40 select-none">1</span>
+                    <span className="text-slate-500 select-none w-4">1</span>
                     <code>
-                      <span className="text-purple-500">const</span>{" "}
-                      <span className="text-blue-500">developer</span>{" "}
-                      <span className="text-foreground/60">=</span>{" "}
-                      <span className="text-foreground/80">{"{"}</span>
+                      <span className="text-purple-400">interface</span>{" "}
+                      <span className="text-yellow-300">Developer</span>{" "}
+                      <span className="text-slate-400">{"{"}</span>
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-foreground/40 select-none">2</span>
+                    <span className="text-slate-500 select-none w-4">2</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">Facebook:</span>{" "}
-                      <span className="text-green-500">'Kittipol Ltk'</span>,
+                      <span className="text-blue-300">name</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-green-400">string</span>
+                      <span className="text-slate-400">;</span>
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-foreground/40 select-none">3</span>
+                    <span className="text-slate-500 select-none w-4">3</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">Phone:</span>{" "}
-                      <span className="text-foreground/80">{"["}</span>
-                      <span className="text-green-500">'0982832896'</span>,{" "}
-                      <span className="text-green-500">'0624035049'</span>
-                      <span className="text-foreground/80">{"]"}</span>,
+                      <span className="text-blue-300">role</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-green-400">string</span>
+                      <span className="text-slate-400">;</span>
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-foreground/40 select-none">4</span>
+                    <span className="text-slate-500 select-none w-4">4</span>
                     <code className="pl-4">
-                      <span className="text-foreground/70">Email:</span>{" "}
-                      <span className="text-green-500">
-                        'kittipol.lkt@gmail.com'
-                      </span>
+                      <span className="text-blue-300">skills</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-green-400">string[]</span>
+                      <span className="text-slate-400">;</span>
                     </code>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-foreground/40 select-none">5</span>
+                    <span className="text-slate-500 select-none w-4">5</span>
+                    <code className="pl-4">
+                      <span className="text-blue-300">available</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-green-400">boolean</span>
+                      <span className="text-slate-400">;</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">6</span>
                     <code>
-                      <span className="text-foreground/80">{"}"}</span>
+                      <span className="text-slate-400">{"}"}</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">7</span>
+                    <code></code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">8</span>
+                    <code>
+                      <span className="text-purple-400">const</span>{" "}
+                      <span className="text-blue-300">kittipol</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-yellow-300">Developer</span>{" "}
+                      <span className="text-slate-400">=</span>{" "}
+                      <span className="text-slate-400">{"{"}</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">9</span>
+                    <code className="pl-4">
+                      <span className="text-blue-300">name</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-orange-300">&quot;Kittipol Lekethok&quot;</span>
+                      <span className="text-slate-400">,</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">10</span>
+                    <code className="pl-4">
+                      <span className="text-blue-300">role</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-orange-300">&quot;Full Stack Developer&quot;</span>
+                      <span className="text-slate-400">,</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">11</span>
+                    <code className="pl-4">
+                      <span className="text-blue-300">skills</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-slate-400">[</span>
+                      <span className="text-orange-300">&quot;React&quot;</span>
+                      <span className="text-slate-400">,</span>{" "}
+                      <span className="text-orange-300">&quot;Next.js&quot;</span>
+                      <span className="text-slate-400">,</span>{" "}
+                      <span className="text-orange-300">&quot;Node.js&quot;</span>
+                      <span className="text-slate-400">],</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">12</span>
+                    <code className="pl-4">
+                      <span className="text-blue-300">available</span>
+                      <span className="text-slate-400">:</span>{" "}
+                      <span className="text-purple-400">true</span>
+                    </code>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-slate-500 select-none w-4">13</span>
+                    <code>
+                      <span className="text-slate-400">{"};"}</span>
                     </code>
                   </div>
                 </div>
               </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl" />
             </div>
           </div>
         </div>

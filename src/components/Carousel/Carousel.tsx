@@ -20,7 +20,7 @@ export function CarouselDemo() {
   const items = Array.from({ length: 5 }, (_, i) => i + 1).reverse()
 
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-20 sm:py-28" id="projects">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Carousel
           className="w-full"

@@ -1,4 +1,3 @@
-import { IconType } from "react-icons";
 import {
   SiReact,
   SiNextdotjs,
@@ -34,20 +33,7 @@ import {
 } from "react-icons/si";
 import { SiMssql } from "@/components/icons/SiMssql";
 
-export type TechCategory =
-  | "Frontend"
-  | "Backend"
-  | "Languages"
-  | "Database"
-  | "DevOps"
-  | "Tools";
-
-export interface Technology {
-  name: string;
-  category: TechCategory;
-  icon: IconType;
-}
-
+import { Technology, TechCategory } from "@/types/Technology";
 
 export const technologiesByCategory: Record<TechCategory, Technology[]> = {
   Frontend: [
@@ -101,7 +87,11 @@ export const technologiesByCategory: Record<TechCategory, Technology[]> = {
   ],
 };
 
-export const allTechnologies: Technology[] = Object.values(technologiesByCategory).flat();
-export const categories: TechCategory[] = Object.keys(technologiesByCategory) as TechCategory[];
+export const allTechnologies: Technology[] = Object.values(
+  technologiesByCategory
+).flat();
+export const categories: TechCategory[] = Object.keys(
+  technologiesByCategory
+) as TechCategory[];
 export const getCategoryCount = (category: TechCategory): number =>
   technologiesByCategory[category].length;
