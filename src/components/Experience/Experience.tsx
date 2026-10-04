@@ -4,11 +4,10 @@ import { cn } from "@/lib/utils";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/ui/reveal";
 import { experience } from "@/data/experience";
-import { dataProject } from "@/data/projectdata";
 
 export default function Experience() {
   return (
-    <Section id="experience" index="01" label="Experience">
+    <Section id="experience" index="02" label="Experience">
       <Reveal>
         <ol>
           {experience.map((item, index) => (
@@ -43,7 +42,7 @@ export default function Experience() {
                   <ArrowUpRight className="size-3.5 text-faint transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
                 </a>
 
-                <span className="label">{item.total}</span>
+                <span className="label">{item.period}</span>
               </div>
 
               {item.summary ? (
@@ -62,7 +61,8 @@ export default function Experience() {
                       {position.title}
                     </span>
                     <span className="font-mono text-[0.72rem] text-faint">
-                      {position.type} · {position.duration}
+                      {position.type}
+                      {position.duration ? ` · ${position.duration}` : ""}
                     </span>
                   </li>
                 ))}
@@ -70,33 +70,6 @@ export default function Experience() {
             </li>
           ))}
         </ol>
-
-        {/* Client organizations — same hairline matrix as the Stack section */}
-        <div className="mt-10 border-t border-line pt-8">
-          <h3 className="label">Clients</h3>
-
-          <div className="mt-5 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-3">
-            {dataProject.map((client) => (
-              <div key={client.name} className="bg-canvas p-5">
-                <span className="flex size-8 items-center justify-center rounded-full bg-white/90 p-1">
-                  <Image
-                    src={client.logo}
-                    alt=""
-                    width={32}
-                    height={32}
-                    className="size-full object-contain"
-                  />
-                </span>
-                <p className="mt-4 text-[0.84rem] leading-snug text-dim">
-                  {client.name}
-                </p>
-                <p className="mt-1.5 font-mono text-[0.68rem] text-faint">
-                  {client.sector}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </Reveal>
     </Section>
   );

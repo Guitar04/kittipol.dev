@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { site } from "@/data/site";
 
 const links = [
@@ -59,15 +59,6 @@ export default function Intro() {
                   <ArrowUpRight className="size-3.5 text-faint transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" />
                 </a>
               ))}
-
-              <a
-                href={site.resume}
-                download
-                className="group inline-flex items-center gap-1.5 text-[0.9rem] text-dim transition-colors duration-200 hover:text-fg"
-              >
-                CV
-                <ArrowDown className="size-3.5 text-faint transition-all duration-200 group-hover:translate-y-0.5 group-hover:text-accent" />
-              </a>
             </div>
           </div>
         </div>

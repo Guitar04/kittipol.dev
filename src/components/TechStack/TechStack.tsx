@@ -1,13 +1,12 @@
 import Section from "@/components/ui/section";
 import Reveal from "@/components/ui/reveal";
-import StackMarquee from "@/components/TechStack/variants/StackMarquee";
+import StackPanel from "@/components/TechStack/StackPanel";
 
 export default function TechStack() {
   return (
-    <Section id="stack" index="02" label="Stack">
+    <Section id="stack" index="03" label="Stack">
       <Reveal>
-        {/* Swap this for another entry in ./variants to change the treatment. */}
-        <StackMarquee />
+        <StackPanel />
       </Reveal>
     </Section>
   );

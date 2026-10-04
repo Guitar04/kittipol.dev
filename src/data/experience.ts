@@ -2,7 +2,11 @@ export type Position = {
   /** Job title. Adjust if your official title on record differs. */
   title: string;
   type: "Full-time" | "Internship";
-  duration: string;
+  /**
+   * Only needed when a company holds more than one position — the company's
+   * own period already covers a single-role entry.
+   */
+  duration?: string;
 };
 
 export type Experience = {
@@ -17,8 +21,11 @@ export type Experience = {
   logo?: { src: string; width: number; height: number };
   /** Short, factual description of the company. Optional. */
   summary?: string;
-  /** Combined time at the company, shown in the card header. */
-  total: string;
+  /**
+   * Either a date range ("20 Apr 2026 — Present") or a combined duration
+   * ("1 yr 6 mos"), shown beside the company name.
+   */
+  period: string;
   /** Most recent position first. */
   positions: Position[];
 };
@@ -31,14 +38,8 @@ export const experience: Experience[] = [
     // No logo file: their site renders the brand as a text wordmark.
     summary:
       "One-stop technology provider covering consultancy, software development, and infrastructure and system design for business.",
-    total: "4 mos",
-    positions: [
-      {
-        title: "Full Stack Developer",
-        type: "Full-time",
-        duration: "4 mos",
-      },
-    ],
+    period: "20 Apr 2026 — Present",
+    positions: [{ title: "Full Stack Developer", type: "Full-time" }],
   },
   {
     company: "Synerry Corporation",
@@ -47,7 +48,7 @@ export const experience: Experience[] = [
     logo: { src: "/logos/synerry.png", width: 816, height: 256 },
     summary:
       "Digital agency delivering web and mobile applications, digital communications and IT infrastructure for government and enterprise clients in Thailand.",
-    total: "1 yr 6 mos",
+    period: "1 yr 6 mos",
     positions: [
       {
         title: "Full Stack Developer",

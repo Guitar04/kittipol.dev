@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Intro from "@/components/Intro/Intro";
+import About from "@/components/About/About";
 import Experience from "@/components/Experience/Experience";
 import TechStack from "@/components/TechStack/TechStack";
 import Contact from "@/components/Contact/Contact";
@@ -21,6 +22,7 @@ export default function Home() {
 
       <main id="main" className="relative z-10">
         <Intro />
+        <About />
         <Experience />
         <TechStack />
         <Contact />

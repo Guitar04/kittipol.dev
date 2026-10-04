@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@ant-design/v5-patch-for-react-19";
 import "@/css/globals.css";
 import { site } from "@/data/site";
 
