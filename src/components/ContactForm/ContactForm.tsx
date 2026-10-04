@@ -1,19 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Button, ConfigProvider, Form, Input, App } from "antd";
-import { Send } from "lucide-react";
+import { App, Button, ConfigProvider, Form, Input } from "antd";
 
 import type { FormValues } from "@/types/FormValues";
 
 const { TextArea } = Input;
 
-const label = (text: string, required = true) => (
-  <span className="font-mono text-[0.66rem] tracking-[0.16em] text-faint uppercase">
-    {text}
-    {required ? <span className="ml-1 text-accent">*</span> : null}
-  </span>
-);
+const label = (text: string) => <span className="label">{text}</span>;
 
 function ContactFormInner() {
   const [form] = Form.useForm<FormValues>();
@@ -25,30 +19,35 @@ function ContactFormInner() {
     // TODO: wire this up to a real endpoint (API route, Resend, Formspree…).
     // Until then the submission is simulated and only logged locally.
     console.log("Form submitted:", values);
-    await new Promise((resolve) => setTimeout(resolve, 900));
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
     setIsSubmitting(false);
     form.resetFields();
-    message.success("Message sent — thanks for reaching out.");
+    message.success("Your message has been sent. Thank you for reaching out.");
   };
 
   return (
-    <Form form={form} layout="vertical" onFinish={handleSubmit} requiredMark={false}>
+    <Form
+      form={form}
+      layout="vertical"
+      onFinish={handleSubmit}
+      requiredMark={false}
+    >
       <Form.Item
         name="subject"
         label={label("Subject")}
         rules={[{ required: true, message: "Please enter a subject" }]}
       >
-        <Input placeholder="What is this about?" size="large" />
+        <Input placeholder="Subject of your enquiry" />
       </Form.Item>
 
-      <div className="grid grid-cols-1 gap-x-4 md:grid-cols-2">
+      <div className="grid gap-x-5 sm:grid-cols-2">
         <Form.Item
           name="name"
           label={label("Name")}
           rules={[{ required: true, message: "Please enter your name" }]}
         >
-          <Input placeholder="Jane" size="large" />
+          <Input placeholder="First name" />
         </Form.Item>
 
         <Form.Item
@@ -56,19 +55,11 @@ function ContactFormInner() {
           label={label("Surname")}
           rules={[{ required: true, message: "Please enter your surname" }]}
         >
-          <Input placeholder="Doe" size="large" />
+          <Input placeholder="Last name" />
         </Form.Item>
       </div>
 
-      <div className="grid grid-cols-1 gap-x-4 md:grid-cols-2">
-        <Form.Item
-          name="phone"
-          label={label("Phone")}
-          rules={[{ required: true, message: "Please enter your phone number" }]}
-        >
-          <Input placeholder="+66 ..." size="large" inputMode="tel" />
-        </Form.Item>
-
+      <div className="grid gap-x-5 sm:grid-cols-2">
         <Form.Item
           name="email"
           label={label("Email")}
@@ -77,7 +68,15 @@ function ContactFormInner() {
             { type: "email", message: "Please enter a valid email" },
           ]}
         >
-          <Input placeholder="you@company.com" size="large" inputMode="email" />
+          <Input placeholder="you@company.com" inputMode="email" />
+        </Form.Item>
+
+        <Form.Item
+          name="phone"
+          label={label("Phone")}
+          rules={[{ required: true, message: "Please enter your phone number" }]}
+        >
+          <Input placeholder="+66 00 000 0000" inputMode="tel" />
         </Form.Item>
       </div>
 
@@ -87,35 +86,21 @@ function ContactFormInner() {
         rules={[{ required: true, message: "Please enter your message" }]}
       >
         <TextArea
-          placeholder="Scope, timeline, and anything that would help me answer well."
+          placeholder="Project scope, technical requirements and expected timeline."
           rows={5}
-          style={{ resize: "none", paddingTop: 12, paddingBottom: 12 }}
+          style={{ resize: "none", paddingTop: 10, paddingBottom: 10 }}
         />
       </Form.Item>
 
       <Form.Item className="!mb-0">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <Button
-            type="primary"
-            htmlType="submit"
-            loading={isSubmitting}
-            icon={!isSubmitting && <Send className="size-4" />}
-            size="large"
-            className="!h-12 !rounded-full !border-none !px-7 !text-[0.92rem] !font-medium"
-          >
-            {isSubmitting ? "Sending…" : "Send message"}
-          </Button>
-
-          <p className="text-[0.78rem] leading-relaxed text-faint">
-            Prefer email? Write to{" "}
-            <a
-              href="mailto:kittipol.lkt@gmail.com"
-              className="link-underline text-muted"
-            >
-              kittipol.lkt@gmail.com
-            </a>
-          </p>
-        </div>
+        <Button
+          type="primary"
+          htmlType="submit"
+          loading={isSubmitting}
+          className="!h-10 !px-5 !text-[0.85rem]"
+        >
+          {isSubmitting ? "Sending" : "Send message"}
+        </Button>
       </Form.Item>
     </Form>
   );
@@ -127,32 +112,32 @@ export default function ContactForm() {
       theme={{
         token: {
           colorPrimary: "#5b8def",
-          colorBgContainer: "rgba(255, 255, 255, 0.035)",
-          colorBgElevated: "#10131c",
-          colorBorder: "rgba(255, 255, 255, 0.10)",
-          colorText: "#e9edf5",
-          colorTextPlaceholder: "rgba(154, 164, 184, 0.5)",
-          borderRadius: 12,
-          controlHeight: 48,
+          colorBgContainer: "transparent",
+          colorBgElevated: "#121215",
+          colorBorder: "rgba(255, 255, 255, 0.12)",
+          colorText: "#ededee",
+          colorTextPlaceholder: "rgba(108, 108, 118, 0.85)",
+          borderRadius: 6,
+          controlHeight: 40,
+          fontSize: 14,
           fontFamily: "var(--font-geist-sans), system-ui, sans-serif",
         },
         components: {
           Input: {
-            activeBorderColor: "#5b8def",
-            hoverBorderColor: "rgba(143, 178, 255, 0.6)",
-            activeShadow: "0 0 0 3px rgba(91, 141, 239, 0.14)",
-            paddingInline: 16,
+            activeBorderColor: "rgba(91, 141, 239, 0.8)",
+            hoverBorderColor: "rgba(255, 255, 255, 0.22)",
+            activeShadow: "0 0 0 2px rgba(91, 141, 239, 0.12)",
+            paddingInline: 12,
           },
           Button: {
-            primaryShadow: "0 10px 30px -10px rgba(91, 141, 239, 0.85)",
-            colorPrimaryHover: "#8fb2ff",
-            colorTextLightSolid: "#06070a",
+            primaryShadow: "none",
+            colorPrimaryHover: "#7ba3f3",
+            colorTextLightSolid: "#0a0a0b",
             fontWeight: 500,
           },
           Form: {
-            labelColor: "#9aa4b8",
-            itemMarginBottom: 20,
-            verticalLabelPadding: "0 0 6px",
+            itemMarginBottom: 18,
+            verticalLabelPadding: "0 0 7px",
           },
         },
       }}

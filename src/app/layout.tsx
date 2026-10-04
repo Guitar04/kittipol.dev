@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, Kanit } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "@ant-design/v5-patch-for-react-19";
 import "@/css/globals.css";
 import { site } from "@/data/site";
@@ -14,34 +14,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
-
-const kanit = Kanit({
-  variable: "--font-kanit",
-  subsets: ["latin", "thai"],
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://kittipol.dev"),
   title: {
-    default: `${site.wordmark}${site.wordmarkSuffix} — ${site.role}`,
+    default: `${site.name} — ${site.role}`,
     template: `%s — ${site.wordmark}${site.wordmarkSuffix}`,
   },
-  description: `Portfolio of ${site.name}, a ${site.role} building web products with Next.js, Vue, Laravel and modern cloud tooling.`,
+  description: `Portfolio of ${site.name}, a ${site.role} building web applications with Next.js, .NET, Laravel and modern cloud tooling.`,
   keywords: [
     "Full Stack Developer",
     "Next.js",
     "React",
-    "Vue",
+    "C#",
+    ".NET",
     "Laravel",
     "TypeScript",
-    "Portfolio",
     site.name,
   ],
   authors: [{ name: site.name, url: site.socials.github }],
@@ -60,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07080b",
+  themeColor: "#0a0a0b",
   colorScheme: "dark",
 };
 
@@ -70,10 +57,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${kanit.variable} antialiased`}
-      >
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>

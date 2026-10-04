@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.synerry.com)",
+      "WebFetch(domain:swtech.co.th)"
+    ]
+  }
+}
