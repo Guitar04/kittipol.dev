@@ -1,11 +1,24 @@
+import { site } from "@/data/site";
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <p>&copy; {currentYear} Kittipol. All rights reserved.</p>
-          <p>Built with Next.js, TypeScript & Tailwind CSS</p>
+    <footer className="relative z-10">
+      <div className="wrap">
+        <div className="flex flex-col gap-3 border-t border-line py-10 text-[0.78rem] text-faint sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year} {site.name}
+          </p>
+          <div className="flex items-center gap-6">
+            <span className="font-mono">Next.js · TypeScript · Tailwind</span>
+            <a
+              href="#main"
+              className="transition-colors duration-200 hover:text-dim"
+            >
+              Top
+            </a>
+          </div>
         </div>
       </div>
     </footer>

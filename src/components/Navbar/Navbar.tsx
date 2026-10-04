@@ -1,112 +1,83 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Tech Stack", href: "#tech-stack" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { navItems, site } from "@/data/site";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.3, 1] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <nav
+    <header
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled
-          ? "bg-slate-950/80 backdrop-blur-md shadow-sm py-4"
-          : "bg-transparent py-6"
+          ? "border-b border-line bg-canvas/85 backdrop-blur-md"
+          : "border-b border-transparent"
       )}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-wide text-white transition-opacity hover:opacity-80"
-          >
-            KITTIPOL<span className="text-blue-500">.DEV</span>
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative text-sm font-medium text-white/70 transition hover:text-white
-                after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-blue-500
-                after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden rounded-lg p-2 text-white hover:bg-white/10 transition-colors"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300",
-            isOpen ? "max-h-64 opacity-100 mt-4" : "max-h-0 opacity-0"
-          )}
+      <nav className="wrap flex h-16 items-center justify-between">
+        <Link
+          href="#main"
+          className="text-[0.85rem] font-medium tracking-tight text-fg"
         >
-          <div className="flex flex-col gap-2 rounded-xl bg-slate-900/90 p-4 border border-white/10 backdrop-blur-md">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="rounded-lg px-4 py-2 text-white/80 hover:bg-white/10 hover:text-white transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          {site.wordmark}
+          <span className="text-accent">{site.wordmarkSuffix}</span>
+        </Link>
+
+        {/* Section links — the page is short enough that mobile scrolls instead. */}
+        <div className="hidden items-center gap-7 sm:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "text-[0.82rem] transition-colors duration-200",
+                active === item.id ? "text-fg" : "text-dim hover:text-fg"
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
-      </div>
-    </nav>
+
+        <a
+          href={`mailto:${site.email}`}
+          className="text-[0.82rem] text-dim transition-colors hover:text-fg sm:hidden"
+        >
+          Email
+        </a>
+      </nav>
+    </header>
   );
 }

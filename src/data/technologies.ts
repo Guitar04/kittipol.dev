@@ -30,6 +30,8 @@ import {
   SiVuedotjs,
   SiNuxtdotjs,
   SiGo,
+  SiSharp,
+  SiDotnet,
 } from "react-icons/si";
 import { SiMssql } from "@/components/icons/SiMssql";
 
@@ -48,6 +50,7 @@ export const technologiesByCategory: Record<TechCategory, Technology[]> = {
   ],
 
   Backend: [
+    { name: ".NET", category: "Backend", icon: SiDotnet },
     { name: "PHP", category: "Backend", icon: SiPhp },
     { name: "Laravel", category: "Backend", icon: SiLaravel },
     { name: "CodeIgniter", category: "Backend", icon: SiCodeigniter },
@@ -55,6 +58,7 @@ export const technologiesByCategory: Record<TechCategory, Technology[]> = {
   ],
 
   Languages: [
+    { name: "C#", category: "Languages", icon: SiSharp },
     { name: "JavaScript", category: "Languages", icon: SiJavascript },
     { name: "TypeScript", category: "Languages", icon: SiTypescript },
     { name: "Golang", category: "Languages", icon: SiGo },

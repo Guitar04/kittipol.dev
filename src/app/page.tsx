@@ -1,27 +1,34 @@
-
-import Hero from "@/components/Hero/Hero";
 import Navbar from "@/components/Navbar/Navbar";
+import Intro from "@/components/Intro/Intro";
+import About from "@/components/About/About";
+import Experience from "@/components/Experience/Experience";
 import TechStack from "@/components/TechStack/TechStack";
-import Footer from "@/components/Footer/Footer";
-import {CarouselDemo} from "@/components/Carousel/Carousel";
-import ParticlesBackground from "@/components/Particles/ParticlesBackground";
 import Contact from "@/components/Contact/Contact";
-import Loading from "@/components/Loading/Loading";
-
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <Loading />
+    <>
+      <div aria-hidden className="top-wash" />
+
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-canvas"
+      >
+        Skip to content
+      </a>
+
       <Navbar />
-      <ParticlesBackground />
-      <div className="relative z-10">
-        <Hero />
+
+      <main id="main" className="relative z-10">
+        <Intro />
+        <About />
+        <Experience />
         <TechStack />
-        {/* <CarouselDemo /> */}
         <Contact />
-        <Footer />
-      </div>
-    </div>
+      </main>
+
+      <Footer />
+    </>
   );
 }
